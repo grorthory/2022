@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+int n, x=0,i=0, j=0, k=0;
+double a, b[10],d=0,m,t;
+while (j<10){
+  b[j]=0;
+  j=j+1;
+}
+printf("Enter non-negative numbers\n");
+ scanf("%d",&x);
+  while (x>=0){
+  b[i]=x;
+  t=t+x;
+  i=i+1;
+  scanf("%d",&x);
+  }
+m=t/(i);
+while (k<i){
+  d=d+(fabs(b[k]-m))*(fabs(b[k]-m));
+  k=k+1;
+  }
+a=sqrt(d/i);
+printf("%lf",a);
+}
