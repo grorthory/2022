@@ -1,0 +1,51 @@
+#include  "FPToolkit.c"
+
+int main(){
+int n, i, frame;
+double t, x1[100], x2[100], y1[100], y2[100];
+
+G_init_graphics(800, 800);
+i=0;
+n=50;
+while(i<n){
+t=i*2*M_PI/n;
+x1[i]=100*cos(t)+400;
+y1[i]=50*sin(t)+500;
+i++;
+}
+i=0;
+while(i<n){
+t=i*2*M_PI/n;
+x2[i]=100*cos(t)+400;
+y2[i]=50*sin(t)+100;
+i++;
+}
+
+i=0;
+while(i<50){
+x1[50+i]=x1[i];
+x2[50+i]=x2[i];
+y1[50+i]=y1[i];
+x2[50+i]=x2[i];
+i++;
+}
+
+frame=0;
+while(frame<=50){
+i=0;
+G_rgb(1, 1, 1);
+G_clear();
+
+while(i<50){
+G_rgb(1, 0, 0);
+G_line(x1[i], y1[i], x2[i+frame], y2[i+frame]);
+i++;
+}
+G_wait_key();
+frame++;
+
+if (frame>50){
+frame=0;
+}
+}
+}
